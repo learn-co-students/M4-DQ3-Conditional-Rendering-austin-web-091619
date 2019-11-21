@@ -3,8 +3,24 @@ import MenuBar from '../components/MenuBar.js'
 import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
-
-
+  state = {
+    display:""
+  }
+  itemToRender(){
+    switch(this.state.display){
+    case "pokemon":
+      return <Pokemon/>
+    case 'profile':
+      return <Profile/>
+    case 'cocktail':
+      return <Cocktails />
+    case 'photo':
+      return <Photos />
+    }
+  }
+  changeMainDisplay=(newDisplay)=>{
+    this.setState({display: newDisplay})
+  }
   render() {
 
     /*
@@ -13,12 +29,12 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+    
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar display={this.state.display} changeMainDisplay={this.changeMainDisplay}/>
+        {this.itemToRender()}
       </div>
     )
   }
