@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MenuBar = (props) => {
+class MenuBar extends React.Component {
 
   /*
 
@@ -12,26 +12,31 @@ const MenuBar = (props) => {
   this component be made aware of what is currently the active menu item?
 
   */
+ handleLink=(event)=>{
 
-  return (
+   this.props.changeMainDisplay(event.target.id)
+ }
+
+  render() {
+    return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
+      <a onClick={this.handleLink} className={this.props.display=== "profile" ?  "item active": "item"} id="profile">
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a className="item" id="photo">
+      <a onClick={this.handleLink} className={this.props.display=== "photo" ?  "item active": "item"} id="photo">
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a className="item" id="cocktail">
+      <a onClick={this.handleLink} className={this.props.display=== "cocktail" ?  "item active": "item"} id="cocktail">
         <i className="cocktail large icon" id="cocktail"/>
       </a>
 
-      <a className="item" id="pokemon"> 
+      <a onClick={this.handleLink} className={this.props.display=== "pokemon" ?  "item active": "item"} id="pokemon"> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
-    </div>
-  )
+    </div>)
+  }
 
 }
 
