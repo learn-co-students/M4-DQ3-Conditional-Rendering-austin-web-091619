@@ -12,24 +12,26 @@ const MenuBar = (props) => {
   this component be made aware of what is currently the active menu item?
 
   */
- 
+  const handleClick=(event)=>{
+    props.changeMainDisplay(event.target.id)
+  }
 
   
     return (
     <div className="ui four item menu">
-      <a onClick={(event)=>props.changeMainDisplay(event.target.id)} className={props.display=== "profile" ?  "item active": "item"} id="profile">
+      <a onClick={handleClick} className={props.display=== "profile" ?  "item active": "item"} id="profile">
         <i className="user large icon" id="profile"/>
       </a>
 
-      <a onClick={(event)=>props.changeMainDisplay(event.target.id)} className={props.display=== "photo" ?  "item active": "item"} id="photo">
+      <a onClick={handleClick} className={props.display=== "photo" ?  "item active": "item"} id="photo">
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a onClick={(event)=>props.changeMainDisplay(event.target.id)} className={props.display=== "cocktail" ?  "item active": "item"} id="cocktail">
+      <a onClick={handleClick} className={props.display=== "cocktail" ?  "item active": "item"} id="cocktail">
         <i className="cocktail large icon" id="cocktail"/>
       </a>
 
-      <a onClick={(event)=>props.changeMainDisplay(event.target.id)} className={props.display=== "pokemon" ?  "item active": "item"} id="pokemon"> 
+      <a onClick={handleClick} className={props.display=== "pokemon" ?  "item active": "item"} id="pokemon"> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>)
